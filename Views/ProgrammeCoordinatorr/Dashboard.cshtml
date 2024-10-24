@@ -1,0 +1,60 @@
+﻿@model LecturesClaimingSystem.Models.Claim
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Programme Coordinator Dashboard</h2>
+<p>Welcome to the Programme Coordinator Dashboard!</p>
+<h2>Dashboard</h2>
+
+<!-- Navigation Links -->
+<div class="links">
+    <a href="/view_claim/">View Claims</a> |
+    <a href="/Home/Approve/">Approve Claim</a>
+</div>
+
+<hr />
+
+<!-- Claim Submission Form -->
+<form method="post" asp-action="ClaimSub" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="moduleName">Module Name</label>
+        <input type="text" id="moduleName" asp-for="LecturerName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="hoursWorked">Hours Worked</label>
+        <input type="number" id="hoursWorked" asp-for="HoursWorked" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="hourlyRate">Hourly Rate on Modules</label>
+        <input type="number" step="0.01" id="hourlyRate" asp-for="HourlyRate" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="description">Hours Description</label>
+        <textarea id="description" asp-for="Description" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="fileUpload">Upload File (Optional)</label>
+        <input type="file" id="fileUpload" name="SupportingDocument" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit Claim" class="btn btn-primary" />
+    </div>
+</form>
+
+<!-- Styling -->
+<style>
+    .links {
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+</style>

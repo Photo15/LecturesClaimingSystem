@@ -1,0 +1,32 @@
+﻿@model IEnumerable<LecturesClaimingSystem.Models.Claim>
+
+<h2>Approved Claims</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>File Name</th>
+                <th>Submission Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.ID</td>
+                    <td>@claim.FileName</td>
+                    <td>@claim.SubmissionDate.ToString("g")</td>
+                    <td>@claim.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No approved claims found.</p>
+}

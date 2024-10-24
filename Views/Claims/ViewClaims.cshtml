@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LecturesClaimingSystem.Models.Claim> // Adjust the namespace
+
+<h2>View Claims</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer</th>
+            <th>Hours Worked</th>
+            <th>Hourly Amount</th>
+            <th>Total Amount</th>
+            <th>Notes</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td> <!-- Replace with actual property names -->
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@(claim.HoursWorked * claim.HourlyRate)</td>
+                <td>@claim.Notes</td>
+                <td>@claim.SubmissionDate.ToString("MM/dd/yyyy")</td>
+                <td>@claim.Status</td> <!-- e.g., Pending, Approved, Rejected -->
+                <td>
+                    <form asp-action="Approve" asp-route-id="@claim.ID" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    <form asp-action="Reject" asp-route-id="@claim.ID" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index", "Home")" class="btn btn-primary">Back to Home</a>

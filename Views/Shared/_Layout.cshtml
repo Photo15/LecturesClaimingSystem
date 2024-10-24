@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/LecturesClaimingSystem.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -29,18 +30,22 @@
             </div>
         </nav>
     </header>
+
+    <!-- Main Content -->
     <div class="container mt-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-light text-center py-3 border-top mt-4">
         <div class="container">
             &copy; 2024 - LecturesClaimingSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

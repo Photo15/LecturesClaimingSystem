@@ -1,0 +1,22 @@
+﻿@model LecturesClaimingSystem.Models.Claim
+
+@{
+    ViewBag.Title = "Submit Claim";
+}
+
+<h2>Submit Claim</h2>
+
+<!-- Claim Submission Confirmation -->
+<div>
+    <h4>Your claim has been submitted successfully!</h4>
+    <p>Claim ID: @Model.ClaimId</p>
+    <p>Lecturer Name: @Model.LecturerName</p>
+    <p>Hours Worked: @Model.HoursWorked</p>
+    <p>Hourly Rate: @Model.HourlyRate</p>
+    <p>Description: @Model.Description</p>
+    <p>Status: @Model.Status</p>
+    <p>Submission Date: @Model.SubmissionDate.ToString("g")</p>
+    <!-- Include any additional fields you want to display -->
+</div>
+
+<a href="@Url.Action("Dashboard", "ProgrammeCoordinator")">Back to Dashboard</a>

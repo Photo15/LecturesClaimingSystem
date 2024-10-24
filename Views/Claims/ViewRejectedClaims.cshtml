@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LecturesClaimingSystem.Models.Claim>
+
+<h2>Rejected Claims</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.ID</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@claim.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

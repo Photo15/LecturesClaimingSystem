@@ -11,5 +11,11 @@ namespace LecturesClaimingSystem.Services
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Lecturer> Lecturers { get; set; }
+        public DbSet<Claim> Claims { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            // Any additional configurations
+        }
     }
 }
